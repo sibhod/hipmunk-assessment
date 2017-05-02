@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hipmunk Hotel Search</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+  </head>
+  <body>
+    <script type="text/template" id="card-template">
+      <li class="card" style="background-image:url(<%= image %>)">
+        <div class="info">
+          <h3><%= name %></h3>
+          <div class="rating <%= ratingClass %>"><%= rating %></div>
+          <div class="poi-dist"><%= poi %></div>
+        </div>
+        <div class="select-button">
+          <div class="select">Select</div>
+          <div class="menu"></div>
+        </div>
+      </li>
+    </script>
+
+    <div id="header"><h1>Hotels</h1></div>
+    <ul id="card-list"></ul>
+    <!-- build:js scripts/main.min.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

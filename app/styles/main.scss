@@ -1,0 +1,209 @@
+@import "reset";
+@import "mixins";
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+$border-color: #d9d9d9;
+
+#header{
+  width: 100%;
+  max-width: 1215px;
+
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0.75em 0;
+
+  border: solid 1px $border-color;
+
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#card-list{
+  width: 100%;
+  max-width: 1074px;
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: flex-start;
+
+  margin: -4px auto 40px auto;
+  font-size: 0;
+}
+
+.card{
+
+  width: calc( 33.3% - 18px);
+  position: relative;
+
+  box-sizing: border-box;
+  margin: 9px;
+
+  color: white;
+
+  border: solid 1px $border-color;
+
+  background-position: center;
+  background-size: cover;
+
+  cursor: pointer;
+
+  font-size: initial;
+  text-align: left;
+
+  &::before{
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 73.5%;
+    visibility: hidden;
+  }
+
+  .info{
+    position: absolute;
+    bottom: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+
+    @include gradient-vertical(rgba(black, 0), rgba(black, 0.75),  0%, 80%);
+
+    h3{
+      font-size: 1.1em;
+      font-weight: 600;
+      padding-right: 72px;
+    }
+
+    .rating{
+      display: inline-block;
+      position: relative;
+
+      padding: 4px 6px 4px 6px;
+      margin: 6px 0 6px -4px;
+      border-radius: 4px;
+
+      font-size: 0.9em;
+      font-weight: 600;
+      background-color: grey;
+
+      &::after{
+        position: absolute;
+        font-weight: initial;
+        margin-left: 12px;
+      }
+
+      &.excellent{
+        background-color: #3ab737;
+        &::after{ content: 'Excellent';}
+      }
+
+      &.good{
+        background-color: #73cf42;
+        &::after{ content: 'Good';}
+      }
+
+      &.fair{
+        background-color: #dfa801;
+        &::after{ content: 'Fair';}
+      }
+
+      &.poor{
+        background-color: #d2392b;
+        &::after{ content: 'Poor';}
+      }
+    }
+
+    .poi-dist{
+      font-size: 0.8em;
+      padding-right: 92px;
+    }
+
+    h3, .poi-dist{
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box
+    }
+  }
+
+  .select-button{
+    background-color: #fe8217;
+    @include gradient-vertical(#ff8517, #f77215,  0%, 100%);
+
+    width: 82px;
+    height: 33px;
+
+    box-sizing: border-box;
+    border: solid 1px #d76d0a;
+    border-radius: 3px;
+
+    position: absolute;
+
+    bottom: 16px;
+    right: 16px;
+
+    .select{
+      height: 100%;
+      font-size: 16px;
+      width: 60px;
+      box-sizing: border-box;
+      padding-top:8px;
+      text-align: center;
+      border-right: solid 1px #d76d0a;
+     }
+
+     .menu{
+       position: absolute;
+       top: 0;
+       right: 0;
+       height: 100%;
+       width: 20px;
+
+       &::after{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         border: solid transparent;
+         content: '';
+         height: 0;
+         width: 0;
+
+         pointer-events: none;
+
+         border-top-color: #ffffff;
+         border-width: 5px;
+         margin-left: -5px;
+         margin-top: -2px;
+       }
+     }
+
+     .select, .menu{
+       cursor: pointer;
+
+       &:hover{
+         background-color: rgba(#ffa14d, 0.25);
+       }
+     }
+  }
+}
+
+@media screen and (max-width: 900px){
+  #card-list{
+    max-width: 816px;
+  }
+  .card{
+    width: calc( 50% - 18px );
+  }
+}
+@media screen and (max-width: 600px){
+  #card-list{
+    max-width: 500px;
+  }
+  .card{
+    width: calc( 100% - 18px );
+  }
+}
