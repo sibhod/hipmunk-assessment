@@ -53,6 +53,11 @@ $border-color: #d9d9d9;
   font-size: initial;
   text-align: left;
 
+
+	&.open{
+		margin-bottom: 310px;
+	}
+
   &::before{
     content: '';
     display: block;
@@ -189,8 +194,25 @@ $border-color: #d9d9d9;
        }
      }
   }
+
+  button.details{
+	  position: absolute;
+	  top: 5px;
+	  right: 5px;
+  }
 }
 
+#expanded{
+	position: absolute;
+	width: 100%;
+	height: 280px;
+	background-color: black;
+	display: none;
+
+	&.open{
+		display: block;
+	}
+}
 @media screen and (max-width: 900px){
   #card-list{
     max-width: 816px;
